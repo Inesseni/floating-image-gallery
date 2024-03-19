@@ -1,80 +1,68 @@
-.main{  
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    position: relative;
-    .title{
-        position: absolute;
-        left: 50%;
-        top: 45%;
-        transform: translateX(-50%) translateY(-50%);
-        font-size: 18px;
-        h1{
-            font-weight: 400;
-            color: white;
-            margin: 0px;
-            text-align: center;
-        }
-        p{
-            color: grey;
-            margin: 0px;
-            text-align: center;
-            margin-top: 10px;
-        }
-    }
-    .plane{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        img{
-            position: absolute;
-        }
-        &:nth-of-type(1){
-            filter: brightness(0.7);
-            img{
-                &:nth-of-type(1){
-                    left:90%;
-                    top: 70%;
-                }
-                &:nth-of-type(2){
-                    left: 5%;
-                    top: 65%;
-                }
-                &:nth-of-type(3){
-                    left: 35%;
-                    top: 0%;
-                }
-            }
-        }
-        &:nth-of-type(2){
-            filter: brightness(0.6);
-            img{
-                &:nth-of-type(1){
-                    left: 5%;
-                    top: 10%;
-                }
-                &:nth-of-type(2){
-                    left: 80%;
-                    top: 5%;
-                }
-                &:nth-of-type(3){
-                    left: 60%;
-                    top: 60%;
-                }
-            }
-        }
-        &:nth-of-type(3){
-            filter: brightness(0.5);
-            img{
-                &:nth-of-type(1){
-                    left: 65%;
-                    top: 2.5%;
-                }
-                &:nth-of-type(2){
-                    left: 40%;
-                    top: 75%;
-                }
-            }
-        }
-    }
+@import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap");
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.main .title {
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 18px;
+}
+
+.main .title h1 {
+  font-family: "Reenie Beanie", cursive;
+  font-weight: 400;
+  font-size: 100px;
+  font-style: italic;
+  color: white;
+  margin: 0px;
+  text-align: center;
+}
+
+.main .title p {
+  color: grey;
+  margin: 0px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.main .plane {
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+}
+
+.main .plane img {
+  pointer-events: all;
+  position: absolute;
+  transition: transform 1s ease 0s;
+}
+
+.main .plane img:hover {
+  transform: scale(1.5);
+  //z-index: 10;
+  filter: brightness(1);
+}
+
+.main .plane:nth-of-type(1) img {
+  //filter: brightness(0.7);
+  //outline: solid red 5px;
+}
+
+.main .plane:nth-of-type(2) img {
+  filter: brightness(0.9);
+  //outline: solid orange 5px;
+}
+
+.main .plane:nth-of-type(3) img {
+  filter: brightness(0.8);
+  //outline: solid yellow 5px;
 }
