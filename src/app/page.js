@@ -1,18 +1,7 @@
 "use client";
 import styles from "./page.module.scss";
-import Image from "next/image";
 import { useRef } from "react";
 import gsap from "gsap";
-import {
-  floating1,
-  floating2,
-  floating3,
-  floating4,
-  floating5,
-  floating6,
-  floating7,
-  floating8,
-} from "../data";
 
 import { common, rare, legendary } from "@/imgArrays";
 import ImgComponent from "@/ImgComponent";
@@ -73,18 +62,18 @@ export default function Home() {
     >
       <div ref={plane1} className={styles.plane}>
         {common.map((src, index) => (
-          <ImgComponent key={index} src={src} width={index === 2 ? 225 : 300} />
+          <ImgComponent key={index} src={src} width={300} />
         ))}
       </div>
 
       <div ref={plane2} className={styles.plane}>
         {rare.map((src, index) => (
-          <ImgComponent key={index} src={src} width={index === 2 ? 225 : 300} />
+          <ImgComponent key={index} src={src} width={400} />
         ))}
       </div>
       <div ref={plane3} className={styles.plane}>
         {legendary.map((src, index) => (
-          <ImgComponent key={index} src={src} width={index === 2 ? 225 : 300} />
+          <ImgComponent key={index} src={src} width={350} />
         ))}
       </div>
       <div className={styles.title}>
