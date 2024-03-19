@@ -9,13 +9,7 @@ const ImgComponent = (props) => {
   const randomLeft = Math.floor(Math.random() * 80); // Example: Generate a random number between 0 and 100
 
   return (
-    <Image
-      src={props.src}
-      alt="image"
-      width={props.width}
-      height="auto"
-      style={{ top: randomTop, left: `${randomLeft}%` }}
-    />
+    <img src={props.src} alt="Girl in a jacket" width="500" height="600"></img>
   );
 };
 
