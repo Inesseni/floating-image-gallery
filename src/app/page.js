@@ -62,7 +62,11 @@ export default function Home() {
     >
       <div ref={plane1} className={styles.plane}>
         {common.map((src, index) => (
-          <ImgComponent key={index} src={src} width={300} />
+          <ImgComponent
+            key={index}
+            src={"images/rare/InShot_20240318_235905190.png"}
+            width={300}
+          />
         ))}
       </div>
 
