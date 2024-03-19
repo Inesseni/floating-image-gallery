@@ -5,6 +5,7 @@ import gsap from "gsap";
 
 import { common, rare, legendary } from "@/imgArrays";
 import ImgComponent from "@/ImgComponent";
+console.log(rare);
 
 export default function Home() {
   const plane1 = useRef(null);
@@ -64,20 +65,35 @@ export default function Home() {
         {common.map((src, index) => (
           <ImgComponent
             key={index}
-            src={"images/rare/InShot_20240318_235905190.png"}
-            width={300}
+            src={src}
+            scale={0.3}
+            minLeft={1000}
+            maxLeft={2200}
           />
         ))}
       </div>
 
       <div ref={plane2} className={styles.plane}>
         {rare.map((src, index) => (
-          <ImgComponent key={index} src={src} width={400} />
+          <ImgComponent
+            key={index}
+            src={src}
+            scale={0.4}
+            maxLeft={2000}
+            minLeft={900}
+          />
         ))}
       </div>
+
       <div ref={plane3} className={styles.plane}>
         {legendary.map((src, index) => (
-          <ImgComponent key={index} src={src} width={350} />
+          <ImgComponent
+            key={index}
+            src={src}
+            scale={0.4}
+            maxLeft={1200}
+            minLeft={300}
+          />
         ))}
       </div>
       <div className={styles.title}>
