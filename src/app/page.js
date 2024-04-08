@@ -5,7 +5,9 @@ import gsap from "gsap";
 
 import { common, rare, legendary } from "@/imgArrays";
 import ImgComponent from "@/ImgComponent";
-console.log(rare);
+
+const maxLeft = window.innerWidth;
+console.log(maxLeft);
 
 export default function Home() {
   const plane1 = useRef(null);
@@ -63,39 +65,22 @@ export default function Home() {
     >
       <div ref={plane1} className={styles.plane}>
         {common.map((src, index) => (
-          <ImgComponent
-            key={index}
-            src={src}
-            scale={0.3}
-            minLeft={1000}
-            maxLeft={2200}
-          />
+          <ImgComponent key={index} src={src} show={true} XOffset={0.5} />
         ))}
       </div>
 
       <div ref={plane2} className={styles.plane}>
         {rare.map((src, index) => (
-          <ImgComponent
-            key={index}
-            src={src}
-            scale={0.4}
-            maxLeft={2000}
-            minLeft={900}
-          />
+          <ImgComponent key={index} src={src} show={true} XOffset={0.35} />
         ))}
       </div>
 
       <div ref={plane3} className={styles.plane}>
         {legendary.map((src, index) => (
-          <ImgComponent
-            key={index}
-            src={src}
-            scale={0.4}
-            maxLeft={1200}
-            minLeft={300}
-          />
+          <ImgComponent key={index} src={src} show={true} XOffset={0.2} />
         ))}
       </div>
+
       <div className={styles.title}>
         <h1>P.S. from the streets</h1>
         <p>Notes collected by Ines Hilz</p>

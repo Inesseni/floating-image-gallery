@@ -1,31 +1,48 @@
 import React, { useEffect, useState } from "react";
-const maxPageHeight = 5000;
+const maxPageHeight = 6000;
 
 // A functional component
 const ImgComponent = (props) => {
+  if (props.show == false) return;
   const [randomTop, setRandomTop] = useState(0);
-  const [randomLeft, setRandomLeft] = useState(0);
+  const [randomOffset, setRandomOffset] = useState(0);
+  const [scale, setScale] = useState(0);
 
   useEffect(() => {
-    // Function to calculate random top and left values
     const calculateRandomPosition = () => {
-      const randomTopValue = Math.floor(Math.random() * maxPageHeight) - 300;
-      const randomLeftValue =
-        Math.floor(Math.random() * props.maxLeft) - props.minLeft;
+      let newScale = window.innerWidth * 0.001;
+      if (newScale >= 0.4) {
+        newScale = 0.4;
+      }
+      setScale(newScale);
+
+      const maxXOffset = window.innerWidth * props.XOffset;
+      const negXOffset = -maxXOffset * newScale;
+      const maxYOffset = 500;
+
+      const randomTopValue = Math.random() * (maxYOffset - -maxYOffset) - 300;
+
+      const randomOffs = Math.random() * (maxXOffset - negXOffset) + negXOffset;
 
       setRandomTop(randomTopValue);
-      setRandomLeft(randomLeftValue);
+      setRandomOffset(randomOffs);
     };
 
     // Call the function when component mounts
     calculateRandomPosition();
-  }, [props.maxLeft, props.minLeft]);
+    ///console.log(randomOffset);
+  }, []);
 
+  useEffect(() => {
+    //console.log(randomOffset);
+  }, [randomOffset]);
+
+  //console.log(props.maxLeft);
   return (
     <img
       src={props.src}
       alt="note"
-      style={{ top: randomTop, left: randomLeft, scale: props.scale }}
+      style={{ left: randomOffset, top: randomTop, scale: scale }}
     ></img>
   );
 };
