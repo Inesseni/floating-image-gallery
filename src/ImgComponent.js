@@ -8,12 +8,12 @@ const ImgComponent = (props) => {
   const [randomOffset, setRandomOffset] = useState(0);
   const [scale, setScale] = useState(0);
 
+  let newScale = window.innerWidth * 0.001;
+  if (newScale >= 0.4) {
+    newScale = 0.4;
+  }
   useEffect(() => {
     const calculateRandomPosition = () => {
-      let newScale = window.innerWidth * 0.001;
-      if (newScale >= 0.4) {
-        newScale = 0.4;
-      }
       setScale(newScale);
 
       const maxXOffset = window.innerWidth * props.XOffset;
