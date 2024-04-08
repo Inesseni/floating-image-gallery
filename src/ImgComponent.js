@@ -30,12 +30,7 @@ const ImgComponent = (props) => {
 
     // Call the function when component mounts
     calculateRandomPosition();
-    ///console.log(randomOffset);
-  }, []);
-
-  useEffect(() => {
-    //console.log(randomOffset);
-  }, [randomOffset]);
+  }, [props.XOffset]);
 
   //console.log(props.maxLeft);
   return (
