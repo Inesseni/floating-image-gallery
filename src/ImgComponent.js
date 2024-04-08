@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-const maxPageHeight = 6000;
 
 // A functional component
 const ImgComponent = (props) => {
-  if (props.show == false) return;
+  //if (props.show == false) return;
   const [randomTop, setRandomTop] = useState(0);
   const [randomOffset, setRandomOffset] = useState(0);
   const [scale, setScale] = useState(0);
