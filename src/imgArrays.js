@@ -12,7 +12,6 @@ const common = [
   "images/common/InShot_20240319_000524925.png",
   "images/common/InShot_20240319_000545708.png",
   "images/common/InShot_20240319_000604641.png",
-  "images/common/InShot_20240319_000757167.png",
   "images/common/InShot_20240319_000825368.png",
   "images/common/InShot_20240319_000850709.png",
   "images/common/InShot_20240319_000920564.png",
@@ -24,6 +23,7 @@ const common = [
 const rare = [
   "images/rare/InShot_20240318_234844554.png",
   "images/rare/InShot_20240318_235143835.png",
+  "images/rare/InShot_20240319_000757167.png",
   "images/rare/InShot_20240318_235222155.png",
   "images/rare/InShot_20240318_235524670.png",
   "images/rare/InShot_20240318_235554751.png",

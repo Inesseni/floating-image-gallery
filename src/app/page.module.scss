@@ -53,8 +53,7 @@
   position: relative;
   display: flex;
   pointer-events: all;
-  transition: transform 1s ease 0s;
-  transform-origin: 25% 0%;
+  //transition: transform 1s ease 0s;
 }
 
 .main .plane img:hover {

@@ -20,6 +20,7 @@ export default function Home() {
       return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
+  console.log(windowWidth);
   const plane1 = useRef(null);
   const plane2 = useRef(null);
   const plane3 = useRef(null);
@@ -81,7 +82,7 @@ export default function Home() {
                 key={index}
                 src={src}
                 show={true}
-                XOffset={0.5}
+                XOffset={0.3}
                 width={windowWidth}
               />
             ))}
@@ -105,7 +106,7 @@ export default function Home() {
                 key={index}
                 src={src}
                 show={true}
-                XOffset={0.2}
+                XOffset={0.3}
                 width={windowWidth}
               />
             ))}
