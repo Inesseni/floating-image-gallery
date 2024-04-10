@@ -1,15 +1,25 @@
 "use client";
 import styles from "./page.module.scss";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 
 import { common, rare, legendary } from "@/imgArrays";
 import ImgComponent from "@/ImgComponent";
 
-const maxLeft = window.innerWidth;
-console.log(maxLeft);
-
 export default function Home() {
+  const [windowWidth, setWindowWidth] = useState(undefined);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowWidth(window.innerWidth);
+
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
   const plane1 = useRef(null);
   const plane2 = useRef(null);
   const plane3 = useRef(null);
@@ -63,28 +73,50 @@ export default function Home() {
       }}
       className={styles.main}
     >
-      <div ref={plane1} className={styles.plane}>
-        {common.map((src, index) => (
-          <ImgComponent key={index} src={src} show={true} XOffset={0.5} />
-        ))}
-      </div>
+      {windowWidth && (
+        <div>
+          <div ref={plane1} className={styles.plane}>
+            {common.map((src, index) => (
+              <ImgComponent
+                key={index}
+                src={src}
+                show={true}
+                XOffset={0.5}
+                width={windowWidth}
+              />
+            ))}
+          </div>
 
-      <div ref={plane2} className={styles.plane}>
-        {rare.map((src, index) => (
-          <ImgComponent key={index} src={src} show={true} XOffset={0.35} />
-        ))}
-      </div>
+          <div ref={plane2} className={styles.plane}>
+            {rare.map((src, index) => (
+              <ImgComponent
+                key={index}
+                src={src}
+                show={true}
+                XOffset={0.35}
+                width={windowWidth}
+              />
+            ))}
+          </div>
 
-      <div ref={plane3} className={styles.plane}>
-        {legendary.map((src, index) => (
-          <ImgComponent key={index} src={src} show={true} XOffset={0.2} />
-        ))}
-      </div>
+          <div ref={plane3} className={styles.plane}>
+            {legendary.map((src, index) => (
+              <ImgComponent
+                key={index}
+                src={src}
+                show={true}
+                XOffset={0.2}
+                width={windowWidth}
+              />
+            ))}
+          </div>
 
-      <div className={styles.title}>
-        <h1>P.S. from the streets</h1>
-        <p>Notes collected by Ines Hilz</p>
-      </div>
+          <div className={styles.title}>
+            <h1>P.S. from the streets</h1>
+            <p>Notes collected by Ines Hilz</p>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

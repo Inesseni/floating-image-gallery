@@ -2,22 +2,15 @@ import React, { useEffect, useState } from "react";
 
 // A functional component
 const ImgComponent = (props) => {
-  //if (props.show == false) return;
   const [randomTop, setRandomTop] = useState(0);
   const [randomOffset, setRandomOffset] = useState(0);
   const [scale, setScale] = useState(0);
 
-  let newScale = window.innerWidth * 0.001;
-  if (newScale >= 0.4) {
-    newScale = 0.4;
-  }
   useEffect(() => {
     const calculateRandomPosition = () => {
-      setScale(newScale);
-
-      const maxXOffset = window.innerWidth * props.XOffset;
-      const negXOffset = -maxXOffset * newScale;
       const maxYOffset = 500;
+      const maxXOffset = 10 * props.XOffset;
+      const negXOffset = -maxXOffset * 0.01;
 
       const randomTopValue = Math.random() * (maxYOffset - -maxYOffset) - 300;
 
@@ -29,14 +22,14 @@ const ImgComponent = (props) => {
 
     // Call the function when component mounts
     calculateRandomPosition();
-  }, [props.XOffset]);
+  }, []);
 
   //console.log(props.maxLeft);
   return (
     <img
       src={props.src}
       alt="note"
-      style={{ left: randomOffset, top: randomTop, scale: scale }}
+      style={{ left: randomOffset, top: randomTop, scale: 0.2 }}
     ></img>
   );
 };
